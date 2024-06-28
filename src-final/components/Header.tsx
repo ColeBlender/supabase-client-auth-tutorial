@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import SignOutButton from "./SignOutButton";
-import { getUser } from "@/supabase/auth/server";
+import { useGetUser } from "@/supabase/auth/client";
 
-async function Header() {
-  const user = await getUser();
+function Header() {
+  const user = useGetUser();
 
   return (
     <div className="bg-slate-300 w-full h-20 flex items-center gap-4 px-4 justify-between">
